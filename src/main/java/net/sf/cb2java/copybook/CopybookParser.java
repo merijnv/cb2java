@@ -38,14 +38,16 @@ import net.sf.cb2xml.sablecc.parser.ParserException;
  * <p>To parse or create data, you need to first parse the
  * copybook.  The returned CopyBook instance will allow for 
  * working with data.
- * 
+ *
  * @author James Watson
+ *
+ * The debug compiletime flag has been replaced by the system property
+ * with name cb2java.debug
  */
 public class CopybookParser
 {
-    /** turns debugging on/off I want to replace this with a logging solution */
-    private static boolean debug = false;
-    
+
+    private static final boolean DEBUG = System.getProperty("cb2java.debug", "false").equals("true");
     /**
      * Parses a copybook definition and returns a Copybook instance
      * 
@@ -73,7 +75,7 @@ public class CopybookParser
         StringReader sr = new StringReader(preProcessed);
         PushbackReader pbr = new PushbackReader(sr, 1000);
         
-        Lexer lexer = debug ? new DebugLexer(pbr) : new Lexer(pbr);
+        Lexer lexer = DEBUG ? new DebugLexer(pbr) : new Lexer(pbr);
         
         Parser parser = new Parser(lexer);
         CopybookAnalyzer copyBookAnalyzer = new CopybookAnalyzer(name, parser);
