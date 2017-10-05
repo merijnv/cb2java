@@ -11,6 +11,8 @@ package net.sf.cb2java.copybook;
 import java.io.PushbackReader;
 
 import net.sf.cb2xml.sablecc.lexer.Lexer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * extension of Lexer to enable better error reporting
@@ -21,6 +23,7 @@ import net.sf.cb2xml.sablecc.lexer.Lexer;
 // Made this class and its constructor public 
 // This will enable project Record-Editor to invoke this class. JFG
 public class DebugLexer extends Lexer {
+	private static final Logger logger = LoggerFactory.getLogger(DebugLexer.class);
 
 	private StringBuffer buffer = new StringBuffer();
 	
@@ -34,8 +37,10 @@ public class DebugLexer extends Lexer {
 
 	protected void filter() {
 		buffer.append(token.getText());
-	    System.out.println(token.getClass() +
-                ", state : " + state.id() +
-                ", text : [" + token.getText() + "]");		
+		if (logger.isDebugEnabled()) {
+			logger.debug(String.format("%s , state : %s, text : [%s]",
+					token.getClass(), state.id(),
+					token.getText() + "]"));
+		}
 	}
 }
