@@ -47,8 +47,8 @@ public class Copybook extends Group implements Settings
     private String floatConversion = Settings.DEFAULT.getFloatConversion();
     private SignPosition signPosition = Settings.DEFAULT.getSignPosition();
     
-    private Map<String, Element> redefines = new HashMap<String, Element>();
-    
+    private Map<String, Element> redefines = new HashMap<>();
+
     private final Values values;
     
     /**
@@ -92,7 +92,16 @@ public class Copybook extends Group implements Settings
     {
         return (Element) redefines.get(name);
     }
-    
+
+    /**
+     * Gets the map of redefines
+     * @return map of redefines
+     */
+    public Map<String, Element> getRedefines() {
+        return redefines;
+    }
+
+
     /**
      * creates a new empty application data instance
      * 
