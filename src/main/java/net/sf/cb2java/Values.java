@@ -22,11 +22,15 @@ import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Values {
 	
     private String encoding;
-    
+
+    private List<Value> values = new ArrayList<>();
+
     public Values() {
         ((StringBasedValue) SPACES).bite = ' ';
         ((StringBasedValue) QUOTES).bite = '"';
@@ -45,7 +49,15 @@ public class Values {
             throw new UnsupportedCharsetException(encoding);
         }
     }
-    
+
+    public void addValue(Value v) {
+        values.add(v);
+    }
+
+    public List<Value> getValues() {
+        return values;
+    }
+
     static void testEncoding(String encoding) {
     	String testString = "!/09?@ AZ[]`az/!|";
     	Charset charset = Charset.forName(encoding);

@@ -72,7 +72,9 @@ public class Group extends Element {
         StringBuffer buffer = new StringBuffer();
         buffer.append(super.toString());
         for (Iterator<Element> i = children.iterator(); i.hasNext();) {
-            buffer.append(i.next());
+            Element e = i.next();
+            String s = e.toString();
+            buffer.append(s);
         }
         return buffer.toString();
     }

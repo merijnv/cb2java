@@ -368,6 +368,12 @@ class CopybookAnalyzer extends DepthFirstAdapter {
     // 88 LEVEL CONDITION NODE
     public void inAValueItem(AValueItem node) {
         String name = node.getDataName().getText();
+        if (logger.isDebugEnabled()) {
+            logger.debug(String.format("Current: "+ current.name));
+            logger.debug(String.format("Node literal: "+ node.getLiteralSequence()));
+        }
+        current.addValue(node.getLiteralSequence().toString());
+
 //		curItem = new Item();
 //		curItem.element = document.createElement("condition");
 //		// curItem.element.setAttribute("level", "88");
