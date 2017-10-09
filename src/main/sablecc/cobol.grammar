@@ -134,8 +134,9 @@ Tokens
     // as per COBOL spec an identifier must start with a letter
     // we relax this to allow digits to start an identifier
     // and at least one letter has to exist within the identifier
-    // some copybooks in the wild are this way 
-    data_name = digit* letter ( letter | digit | '-' )*;            
+    // some copybooks in the wild are this way
+    // seen a copy book with (TAG) markings, so added ( and )
+    data_name = digit* ( letter | '(' ) ( letter | digit | '-' | '(' | ')' )*;
     
     // if any strange (e.g. non ASCII) character is encountered this token matches
     // and it is ignored gracefully in the Ignored Tokens section
