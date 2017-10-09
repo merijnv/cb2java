@@ -268,10 +268,12 @@
         <developer>
         	<id>merijnv</id>
             <name>Merijn Vogel</name>
-            <url>https://github.com/merijnv0</url>
+            <url>https://github.com/merijnv</url>
             <roles>
                 <role>developer</role>
             </roles>
+            <organization>ISAAC</organization>
+            <organizationUrl>https://www.isaac.nl/</organizationUrl>
         </developer>
     </developers>
 
