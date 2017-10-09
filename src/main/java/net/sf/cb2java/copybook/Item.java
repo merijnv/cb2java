@@ -61,7 +61,8 @@ class Item {
 
     List<Item> children = new ArrayList<Item>();
 
-    String redefines;
+    Redefinition redefines;
+
     int occurs = 1;
     int minOccurs;  // not supported
     String dependsOn; // not supported

@@ -20,10 +20,8 @@ package net.sf.cb2java.copybook;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 import net.sf.cb2java.Settings;
 import net.sf.cb2java.Values;
 import net.sf.cb2java.data.GroupData;
@@ -47,7 +45,7 @@ public class Copybook extends Group implements Settings
     private String floatConversion = Settings.DEFAULT.getFloatConversion();
     private SignPosition signPosition = Settings.DEFAULT.getSignPosition();
     
-    private Map<String, Element> redefines = new HashMap<>();
+    private Map<String, Redefine> redefines = new HashMap<>();
 
     private final Values values;
     
@@ -73,31 +71,33 @@ public class Copybook extends Group implements Settings
      * redefined an element.  This behavior is partial, untested and
      * not officially supported (yet)
      * 
-     * @param main the name of the original element
-     * @param alias the new name
+     * @param redefinition the redefinition (FOO REDEFINES BAR)
+     * @param element the (more specific) element that replaces BAR
      */
-    void redefine(String main, Element alias)
+    public void redefine(Redefinition redefinition, Element element)
     {
-        redefines.put(main, alias);
+        Redefine redefine = new Redefine(redefinition.getFoo(), redefinition.getBar(), element);
+        redefines.put(redefinition.getFoo(), redefine);
     }
     
     /**
      * Gets an aliased element. This behavior is partial, untested and
      * not officially supported (yet)
      * 
-     * @param name i'm not even sure anymore
-     * @return who knows?
+     * @param name Name of the redefinition (the FOO in FOO redefines BAR).
+     * @return The (typically more specific) element specifying another interpretation of the same data.
      */
     public Element getAliased(String name)
     {
-        return (Element) redefines.get(name);
+        Redefine redefine = redefines.get(name);
+        return redefine == null ? null : redefine.getElement();
     }
 
     /**
      * Gets the map of redefines
      * @return map of redefines
      */
-    public Map<String, Element> getRedefines() {
+    public Map<String, Redefine> getRedefines() {
         return redefines;
     }
 

@@ -194,12 +194,10 @@ class CopybookAnalyzer extends DepthFirstAdapter {
                             ((AItem) node.parent()).getDataNameOrFiller()));
 
         }
-        // FOO REDEFINES BAR, we get FOO from the parent node...
+        // FOO REDEFINES BAR, so we get FOO from the parent node
         String dataName = ((AItem) node.parent()).getDataNameOrFiller().toString();
         // and BAR from the node...
-        dataName += " redefines " + node.getDataName();
-        // so that the redefinition gets registered in the Copybook root as 'FOO redefines BAR'
-        current.redefines = dataName;
+        current.redefines = new Redefinition(dataName, node.getDataName().getText());
     }
 
     public void inAFixedOccursFixedOrVariable(AFixedOccursFixedOrVariable node) {

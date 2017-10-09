@@ -42,6 +42,4 @@ public abstract class Leaf extends Element {
         return Collections.emptyList();
     }
 
-
-
 }
