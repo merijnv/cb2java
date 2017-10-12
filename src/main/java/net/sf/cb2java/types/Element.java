@@ -176,7 +176,7 @@ public abstract class Element {
      * fill in empty bytes.  The default value a data
      * element will be filled solely with these bytes.
      *
-     * @param value
+     * @param value value to set
      */
     public void setValue(Value value) {
         this.value = value;
@@ -187,7 +187,7 @@ public abstract class Element {
      *
      * @param stream the outputstream
      * @param data   the data to write as bytes
-     * @throws IOException
+     * @throws IOException because
      */
     public final void write(OutputStream stream, Object data) throws IOException {
         validate(data);

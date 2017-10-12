@@ -57,6 +57,7 @@ public class DecimalData extends NumericData {
      * in the definiton using this object's rounding more.
      * 
      * @param data the value to set this Object to
+     * @param validate use validation?
      */
     public void setValue(double data, boolean validate) {
         BigDecimal value = new BigDecimal(data);

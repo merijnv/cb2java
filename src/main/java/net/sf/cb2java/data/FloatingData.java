@@ -53,6 +53,7 @@ public class FloatingData extends ValueData {
 
     /**
      * gets the big decimal representation of the value
+     * @return the big decimal representation of the value
      */
     public BigDecimal getBigDecimal() {
         return data == null ? BigDecimal.ZERO : data;
@@ -76,7 +77,7 @@ public class FloatingData extends ValueData {
     }
 
     /**
-     * returns the internal data as a BigDecimal
+     * @return the internal data as a BigDecimal
      */
     @Override
     public Object getValue() {
@@ -84,14 +85,14 @@ public class FloatingData extends ValueData {
     }
     
     /**
-     * returns the internal data as a BigDecimal
+     * @return the internal data as a BigDecimal
      */
     public float getFloat() {
         return getBigDecimal().floatValue();
     }
     
     /**
-     * returns the internal data as a BigDecimal
+     * @return the internal data as a BigDecimal
      */
     public double getDouble() {
         return getBigDecimal().doubleValue();

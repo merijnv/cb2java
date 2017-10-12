@@ -31,10 +31,10 @@ public class Record extends GroupData {
      * Convert the copybook data types into standard Java structures
      * and objects.
      * 
-     * <li>Groups become Maps with keys ordered by the Copybook definition
-     * <li>Occurs use Lists
-     * <li>PICX become Strings
-     * <li>PIC9 become Integers or BigDecimals
+     * - Groups become Maps with keys ordered by the Copybook definition
+     * - Occurs use Lists
+     * - PICX become Strings
+     * - PIC9 become Integers or BigDecimals
      * 
      * The result should be considered immutable, any modifications made
      * are no applied to the parent <code>Record</code>.

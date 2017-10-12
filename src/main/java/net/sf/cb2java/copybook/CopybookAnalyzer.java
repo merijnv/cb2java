@@ -119,7 +119,6 @@ class CopybookAnalyzer extends DepthFirstAdapter {
      * exit root element, save XML as file
      */
     public void outARecordDescription(ARecordDescription node) {
-        // TODO end
         walkTree(document);
     }
 
@@ -189,15 +188,15 @@ class CopybookAnalyzer extends DepthFirstAdapter {
     public void inARedefinesClause(ARedefinesClause node) {
         if (logger.isDebugEnabled()) {
             logger.debug(
-                    String.format("inARedefinesClause node = %s node.parent.dataname = %s",
+                    String.format("inARedefinesClause node = %s node.parent.dataname = '%s'",
                             node,
-                            ((AItem) node.parent()).getDataNameOrFiller()));
+                            ((AItem) node.parent()).getDataNameOrFiller().toString().trim()));
 
         }
         // FOO REDEFINES BAR, so we get FOO from the parent node
-        String dataName = ((AItem) node.parent()).getDataNameOrFiller().toString();
+        String dataName = ((AItem) node.parent()).getDataNameOrFiller().toString().trim();
         // and BAR from the node...
-        current.redefines = new Redefinition(dataName, node.getDataName().getText());
+        current.redefines = new Redefinition(dataName, node.getDataName().getText().trim());
     }
 
     public void inAFixedOccursFixedOrVariable(AFixedOccursFixedOrVariable node) {

@@ -121,7 +121,7 @@ public abstract class Numeric extends Leaf {
      * the application data is not the same as the logical length
      * e.g. SignedSeparate.
      * 
-     * @param data
+     * @param data the object
      */
     @Override
     public void validate(Object data) {

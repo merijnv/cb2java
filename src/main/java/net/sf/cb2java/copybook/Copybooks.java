@@ -10,8 +10,6 @@ import java.util.TreeMap;
 
 /**
  * A map of named Copybook definitions.
- *
- * @author 
  */
 public class Copybooks {
     

@@ -117,7 +117,7 @@ public class Copybook extends Group implements Settings
      * 
      * @param data the data to create the instance for
      * @return a new application data element with the given data
-     * @throws IOException
+     * @throws IOException because
      */
     public Record parseData(byte[] data) throws IOException
     {

@@ -46,7 +46,7 @@ public abstract class Data {
     }
     
     /**
-     * returns the name of the type that defines this element
+     * @return the name of the type that defines this element
      */
     public String getName() {
         return getDefinition().getName();
@@ -55,7 +55,7 @@ public abstract class Data {
     public abstract boolean isLeaf();
     
     /**
-     * returns all the children of this item, if there are any
+     * @return all the children of this item, if there are any
      */
     public abstract List<Data> getChildren();
     
@@ -64,18 +64,19 @@ public abstract class Data {
      * with the given indention
      * 
      * @param indent the string used to indent
+     * @return the string
      */
     public abstract String toString(String indent);
     
     /**
-     * the underlying type definition of the element
+     * @return an Element, the underlying type definition of the element
      */
     public final Element getDefinition() {
         return definition;
     }
     
     /**
-     * returns the Object as it's 'natural' Java type
+     * @return the Object as it's 'natural' Java type
      */
     public abstract Object getValue();
     
@@ -108,8 +109,8 @@ public abstract class Data {
     /**
      * write content to an outputstream. 
      * 
-     * @param stream
-     * @throws IOException
+     * @param stream output
+     * @throws IOException because
      */
     public void write(OutputStream stream) throws IOException {
         getDefinition().write(stream, getValue());
@@ -128,10 +129,10 @@ public abstract class Data {
      * Convert the copybook data types into standard Java structures
      * and objects.
      * 
-     * <li>Groups become Maps
-     * <li>Occurs use Lists
-     * <li>PICX become Strings
-     * <li>PIC9 become Integers or BigDecimals
+     * Groups become Maps
+     * Occurs use Lists
+     * PICX become Strings
+     * PIC9 become Integers or BigDecimals
      * 
      * @author github.com/devstopfix/cb2java
      * 
