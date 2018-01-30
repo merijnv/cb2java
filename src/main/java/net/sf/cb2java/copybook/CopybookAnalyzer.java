@@ -393,7 +393,7 @@ class CopybookAnalyzer extends DepthFirstAdapter {
 //		Element element = document.createElement("condition");
 //		element.setAttribute("value", node.getLiteral().toString().trim());
 //		curItem.element.appendChild(element);
-        throw new IllegalArgumentException("'a sequence literal sequence' not yet supported");
+//        throw new IllegalArgumentException("'a sequence literal sequence' not yet supported");
     }
 
     public void outAThroughSingleLiteralSequence(AThroughSingleLiteralSequence node) {
@@ -401,15 +401,15 @@ class CopybookAnalyzer extends DepthFirstAdapter {
 //		element.setAttribute("value", node.getFrom().toString().trim());
 //		element.setAttribute("through", node.getTo().toString().trim());
 //		curItem.element.appendChild(element);
-        throw new IllegalArgumentException("'a through single literal sequence' not yet supported");
+//        throw new IllegalArgumentException("'a through single literal sequence' not yet supported");
     }
 
     public void outAThroughSequenceLiteralSequence(AThroughSequenceLiteralSequence node) {
 //		Element element = document.createElement("condition");
 //		element.setAttribute("value", node.getFrom().toString().trim());
 //		element.setAttribute("through", node.getTo().toString().trim());
-//		curItem.element.appendChild(element);	
-        throw new IllegalArgumentException("'a through sequence literal sequence' not yet supported");
+//		curItem.element.appendChild(element);
+//        throw new IllegalArgumentException("'a through sequence literal sequence' not yet supported");
     }
 
     //===============================================================================
